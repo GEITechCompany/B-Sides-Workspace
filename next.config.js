@@ -1,7 +1,1 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
-
-module.exports = nextConfig 
+/** @type {import("next").NextConfig} */ const nextConfig = { reactStrictMode: true, swcMinify: true, images: { unoptimized: true }, poweredByHeader: false, webpack: (config, { isServer }) => { config.infrastructureLogging = { level: "error" }; config.optimization.splitChunks = { chunks: "all", maxInitialRequests: 25, minSize: 20000 }; config.optimization.minimize = true; if (!isServer) { config.devtool = false; } return config; } }; module.exports = nextConfig;
