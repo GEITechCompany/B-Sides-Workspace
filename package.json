@@ -6,15 +6,19 @@
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "render-build": "bash ./render-build.sh",
+    "render-start": "NODE_ENV=production next start"
   },
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "^0.8.7",
     "@supabase/supabase-js": "^2.38.4",
     "@tailwindcss/forms": "^0.5.7",
+    "autoprefixer": "^10.4.16",
     "date-fns": "^2.30.0",
     "glob": "^11.0.1",
     "next": "^14.0.3",
+    "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-datepicker": "^4.21.0",
     "react-dom": "^18.2.0",
@@ -27,9 +31,7 @@
     "@types/react": "^18.2.37",
     "@types/react-datepicker": "^4.19.3",
     "@types/react-dom": "^18.2.15",
-    "autoprefixer": "^10.4.16",
     "eslint": "^8.54.0",
-    "eslint-config-next": "14.0.3",
-    "postcss": "^8.4.31"
+    "eslint-config-next": "14.0.3"
   }
 }

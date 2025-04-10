@@ -15,9 +15,9 @@ rm -rf .next
 echo "🧹 Cleaning npm cache..."
 npm cache clean --force
 
-# Install dependencies
-echo "📥 Installing dependencies..."
-npm install --no-audit
+# Install both production and development dependencies
+echo "📥 Installing dependencies (including devDependencies)..."
+npm install --include=dev --no-audit
 
 # Build the application
 echo "🏗️ Building the application..."
