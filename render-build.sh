@@ -3,24 +3,23 @@ set -e
 
 echo "📦 Starting build process..."
 
-# Increase memory allocation for Node (increase to 4GB)
-export NODE_OPTIONS="--max_old_space_size=4096 --max-old-space-size=4096"
-echo "🧠 Node memory increased to 4GB"
+# Increase memory allocation for Node (Render has 2GB standard limit)
+export NODE_OPTIONS="--max_old_space_size=2048"
+echo "🧠 Node memory increased to 2GB"
 
-# Remove node_modules to ensure clean install
-echo "🧹 Cleaning up node_modules..."
-rm -rf node_modules
+# Remove previous build artifacts
+echo "🧹 Cleaning up build artifacts..."
 rm -rf .next
 
 # Clear npm cache to avoid stale dependencies
 echo "🧹 Cleaning npm cache..."
 npm cache clean --force
 
-# Install production dependencies only to save space
+# Install dependencies
 echo "📥 Installing dependencies..."
-npm ci --production=false --no-audit || npm install --no-audit
+npm install --no-audit
 
-# Build the application with limited concurrency to prevent memory issues
+# Build the application
 echo "🏗️ Building the application..."
 NODE_ENV=production npm run build
 
